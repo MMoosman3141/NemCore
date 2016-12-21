@@ -5,6 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NemCore", "NemCore\NemCore.csproj", "{C4C59301-DAB0-4318-A2E4-5CD6F0460026}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestNemCore", "UnitTestNemCore\UnitTestNemCore.csproj", "{1E263061-DFC6-4106-9597-4513D666EE06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D8E3E186-577C-4805-A2F7-DFC2039A0FBE}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{C4C59301-DAB0-4318-A2E4-5CD6F0460026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4C59301-DAB0-4318-A2E4-5CD6F0460026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4C59301-DAB0-4318-A2E4-5CD6F0460026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E263061-DFC6-4106-9597-4513D666EE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E263061-DFC6-4106-9597-4513D666EE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E263061-DFC6-4106-9597-4513D666EE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E263061-DFC6-4106-9597-4513D666EE06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
