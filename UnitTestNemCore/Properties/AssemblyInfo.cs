@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NemCore")]
-[assembly: AssemblyDescription("Small library of useful stuff")]
+[assembly: AssemblyTitle("UnitTestNemCore")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Mark Moosman")]
-[assembly: AssemblyProduct("NemCore")]
-[assembly: AssemblyCopyright("Copyright © 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("UnitTestNemCore")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c4c59301-dab0-4318-a2e4-5cd6f0460026")]
+[assembly: Guid("1e263061-dfc6-4106-9597-4513d666ee06")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.*")]
-[assembly: AssemblyInformationalVersion("1.0.0-beta")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
