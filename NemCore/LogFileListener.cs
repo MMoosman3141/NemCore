@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace NemCore {
   /// <summary>
   /// A TraceListener implementation desigined to write to a log file.
   /// </summary>
-  public class LogFileListener : TraceListener {
+  public sealed class LogFileListener : TraceListener {
     private bool _writeDateTime;
     private string _logFilename;
     private FileStream _fileStream;
@@ -117,8 +114,9 @@ namespace NemCore {
       //Create the file, immediatelly releasing the handle for subsequent writing.  If the file already exists it will be overwritten.
       try {
         _fileStream = new FileStream(LogFilename, FileMode.Create, FileAccess.Write, FileShare.Read);
-        _streamWriter = new StreamWriter(_fileStream, Encoding.UTF8);
-        _streamWriter.AutoFlush = Trace.AutoFlush;
+        _streamWriter = new StreamWriter(_fileStream, Encoding.UTF8) {
+          AutoFlush = Trace.AutoFlush
+        };
       } catch (Exception) {
         throw;
       }
@@ -128,7 +126,7 @@ namespace NemCore {
     /// Destructor, used to ensure that file handles are properly disposed of.
     /// </summary>
     ~LogFileListener() {
-      Dispose();
+      Dispose(false);
     }
 
     /// <summary>
@@ -235,17 +233,34 @@ namespace NemCore {
     /// <summary>
     /// Overwrites the TraceListener Dispose method.
     /// Cleans up file handles.
+    /// 
+    /// Note:  Warning CA1063 has been disabled as it is impossible to seal this non-override method.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly")]
     public new void Dispose() {
-      if(_streamWriter != null) {
-        _streamWriter.Dispose();
-        _streamWriter = null;
+      Dispose(true);
+      GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Disposes of managed and unmanaged fields depending on the parameter.
+    /// </summary>
+    /// <param name="disposing">If true disposes of unmanaged fields and managed fields.  If false only disposes of unmanaged fields.</param>
+    private new void Dispose(bool disposing) {
+      if(disposing) {
+        if(_streamWriter != null) {
+          _streamWriter.Dispose();
+          _streamWriter = null;
+        }
+
+        if(_fileStream != null) {
+          _fileStream.Dispose();
+          _fileStream = null;
+        }
       }
 
-      if (_fileStream != null) {
-        _fileStream.Dispose();
-        _fileStream = null;
-      }
+      _writeDateTime = false;
+      _logFilename = "";
     }
   }
 }

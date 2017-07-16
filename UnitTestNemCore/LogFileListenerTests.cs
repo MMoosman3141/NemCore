@@ -47,8 +47,7 @@ namespace UnitTestNemCore {
       string datePart = firstLine.Split('-').First().Trim();
       string msgPart = firstLine.Split('-').Last().Trim();
 
-      DateTime dateTime;
-      bool isDate = DateTime.TryParse(datePart, out dateTime);
+      bool isDate = DateTime.TryParse(datePart, out DateTime dateTime);
 
       Assert.IsTrue(isDate);
 
