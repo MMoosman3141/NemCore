@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace UnitTestNemCore {
   [TestClass]
-  public class NemCoreTest {
+  public class LogFileListenerTests {
     [TestMethod]
     public void UnitTest_LogFileListenerOneLineNoDate() {
       LogFileListener logListener = new LogFileListener(@"C:\Temp\TestLog.log", false);
